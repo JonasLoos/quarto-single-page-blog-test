@@ -3,15 +3,79 @@ title: "Post With Code"
 author: "Harlow Malloc"
 date: "2022-11-27"
 categories: [news, code, analysis]
-image: "image.jpg"
+execute:
+  echo: false
 bibliography: "references.bib"
+toc: true
+jupyter: python3
 ---
 
 This is a post with executable code.
 
-```{python}
-print(42*1)
+<ul>
+  <li onclick='console.log("hi")'>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ul>
+
+::: {.panel-tabset}
+
+## Mermaid
+asdf
+```{mermaid}
+graph TD
+    A[Nice Client] --> B[Load Balancer]
+    B --> C[Server-01]
+    B --> D[Server-02]
 ```
+
+This doesn't seem to work, if on page 2
+
+## Python
+
+```python
+test = "Hello World"
+```
+
+```{python}
+#| label: fig-asdf
+#| fig-cap: "asdf 123 123"
+
+# plot random stuff
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+df = pd.DataFrame(np.random.randn(100, 4), columns=list('ABCD'))
+sns.lineplot(data=df)
+plt.show()
+```
+
+Just a ref to @fig-asdf.
+
+## Observable JS
+
+```{ojs}
+//| panel: sidebar
+//| label: fig-asdf2
+//| fig-cap: "asdf 123 123"
+
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
+```
+
+:::
+
+
+## Math
 
 $$ \sum \frac{1}{n^2} = \frac{\pi^2}{6} $$
 
